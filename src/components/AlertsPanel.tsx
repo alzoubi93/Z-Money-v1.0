@@ -1,0 +1,6 @@
+import type {AlertSettings} from "../models/goals";
+interface Props{settings:AlertSettings;onChange:(s:AlertSettings)=>void;onClose:()=>void}
+export function AlertsPanel({settings,onChange,onClose}:Props){
+ const item=(key:keyof AlertSettings,title:string,desc:string)=><label className="alert-row"><span><strong>{title}</strong><small>{desc}</small></span><input type="checkbox" checked={settings[key]} onChange={e=>onChange({...settings,[key]:e.target.checked})}/></label>;
+ return <div className="modal-backdrop"><div className="modal"><div className="modal-header"><h2>🔔 التنبيهات</h2><button onClick={onClose}>×</button></div><div className="alert-list">{item("budget80","اقتراب الميزانية","تنبيه عند استهلاك 80% من أي ميزانية")}{item("budget100","تجاوز الميزانية","تنبيه عند تجاوز 100%")}{item("debtDue","استحقاق الديون","تنبيه للديون التي اقترب موعد استحقاقها")}{item("monthlySummary","الملخص الشهري","عرض ملخص مالي عند فتح التطبيق في بداية الشهر")}</div><button className="secondary full-btn" onClick={onClose}>حفظ وإغلاق</button></div></div>
+}

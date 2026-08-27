@@ -1,0 +1,3 @@
+import {Home,ArrowDownToLine,ArrowUpFromLine,HandCoins,FileText} from "lucide-react";
+interface Props{onIncome:()=>void;onExpense:()=>void;onDebts:()=>void;onReports:()=>void}
+export function BottomNavigation({onIncome,onExpense,onDebts,onReports}:Props){return <nav className="bottom-navigation"><button className="active"><Home size={21}/><span>الرئيسية</span></button><button onClick={onIncome}><ArrowDownToLine size={21}/><span>دخل</span></button><button onClick={onExpense}><ArrowUpFromLine size={21}/><span>مصروف</span></button><button onClick={onDebts}><HandCoins size={21}/><span>ديون</span></button><button onClick={onReports}><FileText size={21}/><span>تقارير</span></button></nav>}

@@ -1,0 +1,1 @@
+interface Props{title:string;value:string;type:"income"|"expense"|"receivable"|"payable"} export function SummaryCard({title,value,type}:Props){return <div className={`summary-card ${type}`}><span>{title}</span><strong>{value}</strong></div>}
